@@ -6,6 +6,8 @@ var path = require('path');
 var app = express();
 var _ = require('lodash');
 
+
+
 var logger = require('winston');
 var config = require('./config')(logger);
 
@@ -51,7 +53,24 @@ function Viewers(sio) {
   };
 }
 
+
+function Messages(sio) {
+  var msg = [];
+
+  function notifyChanges() {
+    sio.emit('messages:updated', msg);
+  }
+
+  return {
+    add: function add(message) {
+      msg.push(message);
+      notifyChanges();
+    }
+  };
+}
+
 var viewers = Viewers(sio);
+var messages = Messages(sio);
 
 
 // @todo extract in its own
@@ -67,6 +86,10 @@ sio.on('connection', function(socket) {
   socket.on('disconnect', function() {
     viewers.remove(socket.nickname);
     console.log('viewer disconnected %s\nremaining:', socket.nickname, viewers);
+  });
+
+  socket.on('message:update', function(message) {
+    messages.add(socket.nickname+" : "+message);
   });
 
   socket.on('file:changed', function() {
