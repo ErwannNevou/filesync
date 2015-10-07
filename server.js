@@ -6,8 +6,6 @@ var path = require('path');
 var app = express();
 var _ = require('lodash');
 
-
-
 var logger = require('winston');
 var config = require('./config')(logger);
 
@@ -32,6 +30,7 @@ sio.set('authorization', function(handshakeData, accept) {
 
 function Viewers(sio) {
   var data = [];
+  var tmp;
 
   function notifyChanges() {
     sio.emit('viewers:updated', data);
