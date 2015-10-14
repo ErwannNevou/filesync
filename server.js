@@ -32,6 +32,7 @@ var colors=["RED","BLUE","GREEN"];
 
 function Viewers(sio) {
   var data = [];
+  var tmp;
 
   function notifyChanges() {
     sio.emit('viewers:updated', data);
