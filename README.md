@@ -46,7 +46,7 @@ List of operations :
 - uncomplete / u
 - help
 
-The system is not case sensitive. You create a task and complete it by using : todo complete [Task]
+The system is not case sensitive. You create a task and complete it by using : ```todo complete [Task]```
 
 Exemple :
 
