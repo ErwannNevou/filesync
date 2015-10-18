@@ -92,6 +92,10 @@ sio.on('connection', function(socket) {
     console.log('viewer disconnected %s\nremaining:', socket.nickname);
   });
 
+  socket.on('todo:updated', function() {
+    sio.emit.apply(sio, ['todo:updated'].concat(_.toArray(arguments)));
+  });
+
   socket.on('file:changed', function() {
     if (!socket.conn.request.isAdmin) {
       // if the user is not admin

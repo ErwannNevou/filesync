@@ -55,6 +55,15 @@
   </div><!-- /container history-->
     <div class="container-fluid col-xs-3 height" id="chat" ng-controller="SocialCtrl as social">
         <div class="container-fluid chat">
+          <div class="todoTitle">
+              <h4>TODO LIST</h4>
+              <hr>
+          </div>
+          <div ng-controller="TodoCtrl as todo" class="todo">
+            <div ng-repeat="(key, value) in todo.list" class="animate">
+              {{key}} <img ng-if="value==1" src="http://www.fireflyz.com.my/images/content/icon-yes.png"/>
+            </div>
+          </div>
             <div class="chatTitle">
                 <h4>Chat Filesync</h4>
                 <hr>
@@ -90,6 +99,7 @@
   <script src="/app/app.js" type="text/javascript"></script>
   <script src="/app/HistoryCtrl.js" type="text/javascript"></script>
   <script src="/app/HistoryService.js" type="text/javascript"></script>
+  <script src="/app/TodoCtrl.js" type="text/javascript"></script>
   <script src="/app/SocketIOService.js" type="text/javascript"></script>
   <script src="/app/SocialCtrl.js" type="text/javascript"></script>
   <script src="/app/VisibilityService.js" type="text/javascript"></script>

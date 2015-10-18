@@ -21,6 +21,15 @@ h4 {
     height: 10%;
 }
 
+.todoTitle {
+    height: 5%;
+}
+
+.todo{
+  height: 10%;
+  overflow:auto;
+}
+
 .chat {
     background-color: #FFFFF0;
     height: 100%;
@@ -41,12 +50,12 @@ h4 {
 }
 
 .messages {
-    height: 70%;
+    height: 60%;
     overflow:auto;
 }
 
 .sendMessage {
-    height: 10%;
+    height: 7%;
     width: 100%;
 }
 
