@@ -33,6 +33,27 @@ filesync-server
 filesync-relay /path/to/directory
 ```
 
+## Todo List usages
+
+When relay.js is launched you can add/delete/complete/uncomplete a task to the list.
+
+You can do this using : ```todo [Operation] [Task]```
+
+List of operations :
+- add
+- delete / del
+- complete / c
+- uncomplete / u
+- help
+
+The system is not case sensitive. You create a task and complete it by using : todo complete [Task]
+
+Exemple :
+
+  ```todo add Commit this change```
+  
+  It will create an uncompleted task named : "Commit this change"
+
 ## [Changelog](/CHANGELOG.md)
 
 ## Contribute / TODO
