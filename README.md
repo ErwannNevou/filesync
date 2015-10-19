@@ -6,13 +6,13 @@ This is a **proof of concept** AND **a work in progress**, don't share the word,
 # Motivation
 
 > “We are in 2015 and my students still have to copy what I wrote on a screen while I teach them something. This is a long and tedious process that slow down the lectures.
-> 
+>
 > Google Document-like tools should NEVER be used for sharing code, we want syntax highlighting and static analysis not copy/pasting code inside an online document each time we make a change.
-> 
+>
 > Online IDEs are NOT a solution. I have my own finely tuned editor, my students have theirs, we don't want to temporarily trade our workflow comfort for a lecture.
-> 
+>
 > Both solution are stupid.
-> 
+>
 > I want a tool that will allow each students to retrieve in real-time my edits while keeping their own local modifications. This tool will work with any editor/IDE because we sync at the file-system level. Each modifications will be display in an history log and would be either merged locally or dropped definitely.”
 
 > — 03/06/2015
@@ -37,7 +37,7 @@ filesync-relay /path/to/directory
 
 When relay.js is launched you can add/delete/complete/uncomplete a task to the list.
 
-You can do this using : ```todo [Operation] [Task]```
+You can do this using : ```todo [Operation] 'Task'```
 
 List of operations :
 - add
@@ -46,12 +46,12 @@ List of operations :
 - uncomplete / u
 - help
 
-The system is not case sensitive. You create a task and complete it by using : ```todo complete [Task]```
+The system is not case sensitive. You create a task and complete it by using : ```todo complete 'Task'```. You can delete / complete / uncomplete using task's index.
 
 Exemple :
 
   ```todo add Commit this change```
-  
+
   It will create an uncompleted task named : "Commit this change"
 
 ## [Changelog](/CHANGELOG.md)

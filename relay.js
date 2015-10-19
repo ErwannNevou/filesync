@@ -81,30 +81,65 @@ function read() {
           var operation = parts[1].toUpperCase();
           parts.splice(0,2);
           var task = parts.join(" ");
-          var nom = false;
-          if(task.charAt(0) === "'" && task.charAt(task.length-1) === "'") {
-            nom = true;
-          }
+          var isName = (task.charAt(0) === "'" && task.charAt(task.length-1) === "'");
+          var taskName = task.substr(1,task.length-2);
+          var keys = Object.keys( todoList );
+          var index = keys[task-1];
+          console.log(keys);
+          console.log(index);
+          var isUndefined = !index;
+
           switch (operation) {
             case "ADD":
-              if(nom) {
-                todoList[task.substr(1,task.length-2)] = 0;
+              if(isName) {
+                todoList[taskName] = 0;
               }
               else {
                 console.log("Wrong task name : must be 'Task Name'");
               }
             break;
             case "DELETE":
-            case "D":
-              delete todoList[task];
+            case "DEL":
+              if (isName) {
+                delete todoList[taskName];
+              }
+              else{
+                if(isUndefined){
+                  console.log("Undefined task")
+                }
+                else {
+                  delete todoList[index];
+                }
+              }
+
             break;
             case "COMPLETE":
             case "C":
-              todoList[task] = 1;
+              if (isName) {
+                todoList[taskName] = 1;
+              }
+              else{
+                if(isUndefined){
+                  console.log("Undefined task")
+                }
+                else {
+                  todoList[index] = 1;
+                }                
+              }
             break;
             case "UNCOMPLETE":
             case "U":
-              todoList[task] = 0;
+              if (isName) {
+                todoList[taskName] = 0;
+              }
+              else{
+                if(isUndefined){
+                  console.log("Undefined task")
+                }
+                else {
+                  todoList[index] = 0;
+                }
+              }
             break;
             case "HELP":
               console.log("add [taskName]");
