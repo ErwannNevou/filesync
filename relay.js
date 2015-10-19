@@ -81,9 +81,18 @@ function read() {
           var operation = parts[1].toUpperCase();
           parts.splice(0,2);
           var task = parts.join(" ");
+          var nom = false;
+          if(task.charAt(0) === "'" && task.charAt(task.length-1) === "'") {
+            nom = true;
+          }
           switch (operation) {
             case "ADD":
-              todoList[task] = 0;
+              if(nom) {
+                todoList[task.substr(1,task.length-2)] = 0;
+              }
+              else {
+                console.log("Wrong task name : must be 'Task Name'");
+              }
             break;
             case "DELETE":
             case "D":
