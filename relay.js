@@ -85,8 +85,6 @@ function read() {
           var taskName = task.substr(1,task.length-2);
           var keys = Object.keys( todoList );
           var index = keys[task-1];
-          console.log(keys);
-          console.log(index);
           var isUndefined = !index;
 
           switch (operation) {
@@ -124,7 +122,7 @@ function read() {
                 }
                 else {
                   todoList[index] = 1;
-                }                
+                }
               }
             break;
             case "UNCOMPLETE":
